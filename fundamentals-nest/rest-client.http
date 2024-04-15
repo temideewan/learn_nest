@@ -4,17 +4,17 @@
 # get a single song in the database
 # GET http://localhost:3000/songs/1
 
-# POST http://localhost:3000/songs
-# Content-Type: application/json
+POST http://localhost:3000/songs
+Content-Type: application/json
 
-# {
-#   "title": "My Title",
-#   "artists": ["My Artist"],
-#   "album": "My Album",
-#   "releaseDate": "2022-99-12",
-#   "duration": "302:34"
-# }
+{
+  "title": "Dus lover",
+  "artists": ["My Artist"],
+  "album": "My Album",
+  "releaseDate": "2022-12-12",
+  "duration": "15:34"
+}
 
 # PUT http://localhost:3000/songs/1
 
-GET http://localhost:3000/songs/1as
+# GET http://localhost:3000/songs/1as
