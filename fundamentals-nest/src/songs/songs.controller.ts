@@ -5,6 +5,7 @@ import {
   Get,
   HttpException,
   HttpStatus,
+  Inject,
   Param,
   ParseIntPipe,
   Post,
@@ -12,10 +13,16 @@ import {
 } from '@nestjs/common';
 import { SongsService } from './songs.service';
 import { CreateSongDTO } from './dto/create-song-dto';
+import { Connection } from '../common/constants/connection';
 
 @Controller('songs')
 export class SongsController {
-  constructor(private readonly songService: SongsService) {}
+  constructor(
+    private readonly songService: SongsService,
+    @Inject('CONNECTION') private connection: Connection,
+  ) {
+    console.log(connection);
+  }
   @Post()
   createSong(@Body() createSongDTO: CreateSongDTO) {
     return this.songService.create(createSongDTO);
@@ -28,7 +35,9 @@ export class SongsController {
       throw new HttpException(
         'Server error',
         HttpStatus.INTERNAL_SERVER_ERROR,
-        { cause: e },
+        {
+          cause: e,
+        },
       );
     }
   }
