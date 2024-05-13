@@ -1,11 +1,18 @@
 ### sign up user
-
 POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-  "email": "temideewan@gmail.com",
-  "password": "test1234",
+  "email": "raph@gmail.com",
+  "password": "test1234"
+}
+### sign in user
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+  "email": "raph@gmail.com",
+  "password": "test1234"
 }
 
 ### find a user with a given ID
