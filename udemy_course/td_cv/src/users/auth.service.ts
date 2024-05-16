@@ -46,6 +46,9 @@ export class AuthService {
 
     const [salt, storedHash] = user.password.split('.');
     const hash = (await scrypt(password, salt, 32)) as Buffer;
+    if (!salt || !storedHash) {
+      throw new BadRequestException();
+    }
     const storedHashBuffer = Buffer.from(storedHash, 'hex');
     const isEqual = timingSafeEqual(hash, storedHashBuffer);
     if (!isEqual) {
