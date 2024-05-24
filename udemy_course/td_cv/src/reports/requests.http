@@ -1,0 +1,14 @@
+### Create a new report
+
+POST http://localhost:3000/reports
+content-type: application/json
+
+{
+"price": 25000,
+"make": "Toyota",
+"model": "Camry",
+"year": 2020,
+"lng": -122.4194,
+"lat": 37.7749,
+"mileage": 5000
+}
